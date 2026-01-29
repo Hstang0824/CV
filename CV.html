@@ -1,33 +1,47 @@
 <html lang="en">
 
 <head>
-	<style>
-		h2 {
-			text-decoration: underline;
-		}
-	</style>
 	<link rel="stylesheet" href="external.css">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0">
-	<!-- 	<link rel="stylesheet" href="resume.css"> -->
+
+	<style>
+	h2 {
+		text-decoration: underline;
+	}
+	/*#id_th {
+		color: red;
+	}*/
+	/*.class_th {
+		color: grey;
+	}*/
+	[anyAttribute='value_th'] {
+		color: green;
+	}
+
+	</style>
+
+
+	<!-- <script>
+		alert("hello javascript from script tag!");
+	</script>
+ -->
+
 </head>
 
 <body>
+
 	<div class="full">
 		<div class="left">
 			<div class="image">
-				<img src="https://thumbs.dreamstime.com/b/generic-person-gray-photo-placeholder-man-silhouette-white-background-144511705.jpg"
+				<img id='myimg' src="https://thumbs.dreamstime.com/b/generic-person-gray-photo-placeholder-man-silhouette-white-background-144511705.jpg"
 					alt="gfg-logo"
-					style="width:100px;height:100px;">
+					style="width:100px;">
 			</div>
 			<div class="Contact">
 				<h2>Contact</h2>
 				<p><b>Email id:</b>xyz@gmail.com</p>
 				<p><b>Mobile no :</b>1234567890</p>
 			</div>
-			<div class="Skills">
+			<div class="Skills" onclick="alert('skills mostly are learned and trained from college');">
 				<h2>Skills</h2>
 				<ul>
 					<li><b>Programming Languages :
@@ -37,6 +51,7 @@
 					<li><b>Backend : Node.js</b></li>
 				</ul>
 			</div>
+
 			<div class="Language">
 				<h2>Language</h2>
 				<ul>
@@ -56,6 +71,7 @@
 			<div class="name">
 				<h1>GeeksforGeeks</h1>
 			</div>
+
 			<div class="title">
 				<p>Web Developer</p>
 			</div>
@@ -84,13 +100,16 @@
 					<li>Working on designing</li>
 				</ul>
 			</div>
+
+
 			<div class="Education">
 				<h2>Education</h2>
 				<table>
 					<tr>
-						<th>University/college </th>
+						<th id='id_th' class='class_th' anyAttribute='value_th'>University/college </th>
 						<th>Passing year </th>
 						<th>percentage/cgpa</th>
+
 					</tr>
 					<tr>
 						<td>xyz</td>
@@ -122,5 +141,50 @@
 	</div>
 </body>
 
+	<script>
+		#id_th{
+			color: red;
+		}
+
+		.class_th{
+			color: green;
+		}
+		th[anyAttribute='value_th']{
+			color: orange;
+		}
+		div h2{
+			background-color: yellow;
+		}
+		div, h2{
+			background-color: yellow;
+		}
+		div > h2{
+			background-color: yellow;
+		}
+		// get the image
+		var images = document.getElementsByTagName('img');
+		img = images[0];
+		console.log(img);
+
+		// get the contact div
+		var divs = document.querySelectorAll('.Contact');
+		divContact = divs[0]
+		console.log(divContact);
+
+		// add mouseover event
+		img.addEventListener('mouseover', function(e){
+			img.style.cursor = 'pointer';
+		})
+
+		// add click listener and toggle the contact 
+		img.addEventListener('click', function toggleImage(e) {
+			console.log('img clicked!');
+			if (divContact.style.display == 'none'){
+				divContact.style.display = '';
+			} else {
+				divContact.style.display = 'none';
+			}
+		});		
+	</script>
 </html>
 
